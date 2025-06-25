@@ -1,0 +1,316 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    background: #000;
+}
+
+/* Scene Container */
+.scene-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background: #000000 url('fireworks1.gif') center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Sky */
+.sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    overflow: hidden;
+}
+
+/* Stars */
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    border-radius: 50%;
+    animation: twinkle 3s infinite alternate;
+}
+
+.star:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+.star:nth-child(2) { top: 20%; left: 80%; animation-delay: 0.5s; }
+.star:nth-child(3) { top: 30%; left: 30%; animation-delay: 1s; }
+.star:nth-child(4) { top: 15%; left: 60%; animation-delay: 1.5s; }
+.star:nth-child(5) { top: 40%; left: 20%; animation-delay: 0.3s; }
+.star:nth-child(6) { top: 25%; left: 90%; animation-delay: 0.8s; }
+.star:nth-child(7) { top: 35%; left: 70%; animation-delay: 1.2s; }
+.star:nth-child(8) { top: 45%; left: 40%; animation-delay: 0.7s; }
+.star:nth-child(9) { top: 55%; left: 15%; animation-delay: 1.8s; }
+.star:nth-child(10) { top: 65%; left: 85%; animation-delay: 0.2s; }
+.star:nth-child(11) { top: 75%; left: 25%; animation-delay: 1.3s; }
+.star:nth-child(12) { top: 85%; left: 75%; animation-delay: 0.9s; }
+
+@keyframes twinkle {
+    0% { opacity: 0.2; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.5); }
+}
+
+/* Moon */
+.moon {
+    position: absolute;
+    top: 8%;
+    right: 12%;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, #f4f4f4 0%, #e0e0e0 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+    animation: moonGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes moonGlow {
+    0% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.4); }
+    100% { box-shadow: 0 0 40px rgba(255, 255, 255, 0.8); }
+}
+
+/* Fireworks */
+.fireworks {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.firework {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    opacity: 0;
+    animation: none;
+}
+
+.firework:nth-child(1) { left: 20%; bottom: 0; }
+.firework:nth-child(2) { left: 40%; bottom: 0; }
+.firework:nth-child(3) { left: 60%; bottom: 0; }
+.firework:nth-child(4) { left: 80%; bottom: 0; }
+.firework:nth-child(5) { left: 50%; bottom: 0; }
+
+@keyframes fireworkBurst {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(0.1);
+        background: #ff0000;
+    }
+    25% {
+        opacity: 1;
+        transform: translateY(-20vh) scale(0.5);
+        background: #ff6b6b;
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-40vh) scale(1);
+        background: #ffd700;
+    }
+    75% {
+        opacity: 0.8;
+        transform: translateY(-60vh) scale(1.5);
+        background: #ff69b4;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-80vh) scale(2);
+        background: #00ffff;
+    }
+}
+
+/* American Flag */
+.flag-section {
+    position: absolute;
+    top: 15%;
+    left: 8%;
+    z-index: 10;
+}
+
+.flag-pole {
+    width: 8px;
+    height: 200px;
+    background: linear-gradient(to bottom, #8b4513 0%, #654321 100%);
+    border-radius: 4px;
+    position: relative;
+}
+
+.flag-image {
+    position: absolute;
+    top: 25px;
+    left: 8px;
+    width: 150px;
+    height: 90px;
+    object-fit: cover;
+    border: 1px solid #333;
+    animation: flagWave 4s ease-in-out infinite;
+    transform-origin: left center;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes flagWave {
+    0%, 100% { transform: rotateZ(0deg) skewX(0deg); }
+    25% { transform: rotateZ(1deg) skewX(1deg); }
+    50% { transform: rotateZ(0deg) skewX(0deg); }
+    75% { transform: rotateZ(-1deg) skewX(-1deg); }
+}
+
+/* Ground */
+.ground {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background: linear-gradient(to bottom, #228b22 0%, #006400 100%);
+}
+
+.grass {
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 30px,
+        rgba(255, 255, 255, 0.1) 30px,
+        rgba(255, 255, 255, 0.1) 60px
+    );
+}
+
+/* Content */
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.title {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #ff0000, #ffffff, #0000ff);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+/* Launcher Section */
+.launcher-section {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 30;
+}
+
+.launcher {
+    width: 50px;
+    height: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.launcher:hover {
+    transform: translateY(-10px);
+}
+
+.launcher-top {
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(to bottom, #ff6b6b, #ff0000);
+    border-radius: 8px 8px 0 0;
+    position: relative;
+    animation: launcherGlow 2s infinite alternate;
+}
+
+.launcher-top::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, #fff, #ffd700);
+    border-radius: 50%;
+    animation: launcherPulse 1s infinite alternate;
+}
+
+.launcher-base {
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to bottom, #333, #666);
+    border-radius: 0 0 8px 8px;
+    border: 2px solid #999;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes launcherGlow {
+    0% { box-shadow: 0 0 10px #ff0000; }
+    100% { box-shadow: 0 0 20px #ff0000, 0 0 30px #ff6b6b; }
+}
+
+@keyframes launcherPulse {
+    0% { transform: translateX(-50%) scale(1); }
+    100% { transform: translateX(-50%) scale(1.2); }
+}
+
+/* Firework Triggers */
+.launcher[data-firework="1"]:hover ~ .sky .firework:nth-child(1) {
+    animation: fireworkBurst 2s ease-out forwards;
+}
+
+.launcher[data-firework="2"]:hover ~ .sky .firework:nth-child(2) {
+    animation: fireworkBurst 2s ease-out forwards;
+}
+
+.launcher[data-firework="3"]:hover ~ .sky .firework:nth-child(3) {
+    animation: fireworkBurst 2s ease-out forwards;
+}
+
+.launcher[data-firework="4"]:hover ~ .sky .firework:nth-child(4) {
+    animation: fireworkBurst 2s ease-out forwards;
+}
+
+.launcher[data-firework="5"]:hover ~ .sky .firework:nth-child(5) {
+    animation: fireworkBurst 2s ease-out forwards;
+}
