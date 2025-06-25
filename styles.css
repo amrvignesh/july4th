@@ -192,6 +192,31 @@ body {
     );
 }
 
+/* Grass Decorations */
+.grass-decoration {
+    position: absolute;
+    bottom: 0;
+    z-index: 15;
+}
+
+.s1 {
+    left: 200px;
+    width: 200px;
+    object-fit: cover;
+}
+
+.s2 {
+    right: 200px;
+    width: 200px;
+    object-fit: cover;
+}
+
+.s3 {
+    right: 10px;
+    width: 200px;
+    object-fit: cover;
+}
+
 /* Content */
 .content {
     position: absolute;
@@ -364,4 +389,15 @@ body {
     100% {
         transform: translateX(0) translateY(0) scaleX(-1);
     }
+}
+
+/* GBA Image */
+.gba-image {
+    position: absolute;
+    top: 40%;
+    right: 6%;
+    width: 300px;
+    object-fit: cover;
+    z-index: 12;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
 }
